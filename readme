@@ -1,0 +1,4 @@
+未完成
+原因 ： 發現 reload 仍然只能夠過重啟動sumo無法靠api重設
+參考 https://github.com/Starofall/CrowdNav 架構
+

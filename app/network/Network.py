@@ -22,6 +22,7 @@ class Network(object):
     nodeIds = None
     edgeIds = None
 
+    tlsIds = []   
     @classmethod
     def loadNetwork(cls):
         """ loads the network and applies the results to the Network static class """
@@ -37,6 +38,8 @@ class Network(object):
         cls.edgeIds = map(lambda x: x.getID(), net.getEdges())  # type: list[str]
         cls.nodes = net.getNodes()
         cls.edges = net.getEdges()
+        
+        cls.tls = cls.gettlsIds(net)
 
     @classmethod
     def nodesCount(cls):
@@ -47,3 +50,9 @@ class Network(object):
     def edgesCount(cls):
         """ count the edges """
         return len(cls.edges)
+
+    @classmethod
+    def gettlsIds(cls,net):
+        """ get tls id list"""
+        for tlsID in net._id2tls:
+            cls.tlsIds.append(tlsID)
